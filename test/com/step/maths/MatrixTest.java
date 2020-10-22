@@ -43,4 +43,21 @@ public class MatrixTest {
     Matrix matrixB = Matrix.create(valuesB);
     assertTrue(matrixA.equals(matrixB));
   }
+
+  @Test
+  public void shouldNotValidateIfOtherMatrixISNull() {
+    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    assertFalse(matrixA.equals(null));
+  }
+
+  @Test
+  public void shouldNotValidateIfOtherIsNotAMatrix() {
+    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
+    int[][] valuesB = { { 1, 2 }, { 3, 4 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    assertFalse(matrixA.equals(valuesB));
+  }
 }
