@@ -7,5 +7,9 @@ import org.junit.Test;
 public class MatrixTest {
 
   @Test
-  public static void shouldReturnTextualFromOfMatrix() {}
+  public void shouldReturnTextualFromOfMatrix() {
+    Matrix matrixA = new Matrix(0, 0);
+    System.out.println(matrix);
+    assertEquals(matrix.toString(), "Matrix:\n");
+  }
 }
