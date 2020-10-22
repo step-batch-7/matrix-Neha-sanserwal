@@ -69,7 +69,7 @@ public class Matrix {
 
   public Matrix add(Matrix other) {
     if (
-      this.noOfRows != other.noOfRows && this.noOfColumns != other.noOfColumns
+      this.noOfRows != other.noOfRows || this.noOfColumns != other.noOfColumns
     ) {
       return null;
     }
