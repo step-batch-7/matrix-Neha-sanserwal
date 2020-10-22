@@ -16,6 +16,9 @@ public class Matrix {
     int noOfColumns = values[0].length;
     Matrix matrix = new Matrix(noOfRows, noOfColumns);
     for (int rowNo = 0; rowNo < values.length; rowNo++) {
+      if (values[rowNo].length != noOfColumns) {
+        return null;
+      }
       System.arraycopy(values[rowNo], 0, matrix.values[rowNo], 0, noOfColumns);
     }
     return matrix;

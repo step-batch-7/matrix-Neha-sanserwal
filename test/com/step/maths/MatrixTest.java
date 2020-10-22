@@ -17,6 +17,20 @@ public class MatrixTest {
   }
 
   @Test
+  public void createShouldReturnMatrixIfDimensionsAreValid() {
+    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
+    Matrix matrixA = Matrix.create(valuesA);
+    assertTrue(matrixA instanceof Matrix);
+  }
+
+  @Test
+  public void createShouldReturnNullIfDimensionsAreInvalid() {
+    int[][] valuesA = { { 1, 2 }, { 3 } };
+    Matrix matrixA = Matrix.create(valuesA);
+    assertNull(matrixA);
+  }
+
+  @Test
   public void shouldValidateIfDimensionsOfMatrixAreEqual() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 3 }, { 4, 5 } };
