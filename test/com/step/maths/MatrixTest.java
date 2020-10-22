@@ -60,4 +60,14 @@ public class MatrixTest {
     Matrix matrixA = Matrix.create(valuesA);
     assertFalse(matrixA.equals(valuesB));
   }
+
+  @Test
+  public void shouldNotValidateIfMatrixAreNotEqual() {
+    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
+    int[][] valuesB = { { 1, 2, 3 }, { 3, 4, 3 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    Matrix matrixB = Matrix.create(valuesB);
+    assertFalse(matrixA.equals(matrixB));
+  }
 }
