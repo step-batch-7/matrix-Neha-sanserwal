@@ -120,9 +120,17 @@ public class MatrixTest {
     assertEquals(expectedMatrix, matrixB.subtract(matrixA));
   }
 
-  public void shouldReturnTheDeterminantOf() {
-    int[][] values = { { 1 }, { 1 } };
+  @Test
+  public void shouldReturnTheDeterminantofOneByOneMatrix() {
+    int[][] values = { { 1 } };
     Matrix matrix = Matrix.create(values);
     assertEquals(1, matrix.getDeterminant());
+  }
+
+  @Test
+  public void shouldReturnTheDeterminantOfTwoByTwoMatrix() {
+    int[][] values = { { 1, 2 }, { 2, 1 } };
+    Matrix matrix = Matrix.create(values);
+    assertEquals(-3, matrix.getDeterminant());
   }
 }
