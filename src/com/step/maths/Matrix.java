@@ -103,11 +103,17 @@ public class Matrix {
   }
 
   public Matrix multiply(Matrix other) {
-    Matrix result = new Matrix(this.noOfRows, this.noOfColumns);
-    for (int rowNo = 0; rowNo < this.noOfRows; rowNo++) {
-      for (int colNo = 0; colNo < this.noOfColumns; colNo++) {
-        int product = this.values[rowNo][colNo] * other.values[colNo][rowNo];
-        result.values[rowNo][colNo] = product;
+    Matrix result = new Matrix(this.noOfRows, other.noOfColumns);
+    if (this.noOfColumns != other.noOfRows) {
+      return null;
+    }
+    for (int thisRowId = 0; thisRowId < this.noOfRows; thisRowId++) {
+      for (int otherColId = 0; otherColId < other.noOfColumns; otherColId++) {
+        for (int thisColId = 0; thisColId < this.noOfColumns; thisColId++) {
+          int valueA = this.values[thisRowId][thisColId];
+          int valueB = other.values[thisColId][otherColId];
+          result.values[thisRowId][otherColId] += valueA * valueB;
+        }
       }
     }
     return result;

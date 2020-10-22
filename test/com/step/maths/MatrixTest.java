@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class MatrixTest {
@@ -132,6 +131,30 @@ public class MatrixTest {
     Matrix expectedMatrix = Matrix.create(expectedValues);
 
     assertEquals(expectedMatrix, matrixB.subtract(matrixA));
+  }
+
+  @Test
+  public void shouldMultiplyTwoValidMatrices() {
+    int[][] valuesA = { { 1, 2 } };
+    int[][] valuesB = { { 2 }, { 4 } };
+    int[][] expectedValues = { { 10 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    Matrix matrixB = Matrix.create(valuesB);
+    Matrix expectedMatrix = Matrix.create(expectedValues);
+
+    assertEquals(expectedMatrix, matrixA.multiply(matrixB));
+  }
+
+  @Test
+  public void shouldNotMultiplyTwoInvalidMatrices() {
+    int[][] valuesA = { { 1, 2 } };
+    int[][] valuesB = { { 2 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    Matrix matrixB = Matrix.create(valuesB);
+
+    assertNull(matrixA.multiply(matrixB));
   }
 
   @Test
