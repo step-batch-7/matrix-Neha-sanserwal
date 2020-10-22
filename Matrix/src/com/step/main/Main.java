@@ -1,4 +1,6 @@
-import math.Matrix;
+package com.step.main;
+
+import com.step.maths.Matrix;
 
 public class Main {
 

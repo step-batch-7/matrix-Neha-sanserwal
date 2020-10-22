@@ -1,4 +1,4 @@
-package math;
+package com.step.maths;
 
 public class Matrix {
   private int noOfRows;
