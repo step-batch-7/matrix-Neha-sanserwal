@@ -157,17 +157,36 @@ public class MatrixTest {
     assertNull(matrixA.multiply(matrixB));
   }
 
+  // @Test
+  // public void shouldReturnTheDeterminantofOneByOneMatrix() {
+  //   int[][] values = { { 1 } };
+  //   Matrix matrix = Matrix.create(values);
+  //   assertEquals(1, matrix.getDeterminant());
+  // }
+
+  // @Test
+  // public void shouldReturnTheDeterminantOfTwoByTwoMatrix() {
+  //   int[][] values = { { 1, 2 }, { 2, 1 } };
+  //   Matrix matrix = Matrix.create(values);
+  //   assertEquals(-3, matrix.getDeterminant());
+  // }
+
   @Test
-  public void shouldReturnTheDeterminantofOneByOneMatrix() {
-    int[][] values = { { 1 } };
+  public void shouldReturnTheDeterminantOf3By3Matrix() {
+    int[][] values = { { 5, 4, 2 }, { 4, -3, 22 }, { -1, -1, 1 } };
     Matrix matrix = Matrix.create(values);
-    assertEquals(1, matrix.getDeterminant());
+    assertEquals(-23, matrix.getDeterminant());
   }
 
   @Test
-  public void shouldReturnTheDeterminantOfTwoByTwoMatrix() {
-    int[][] values = { { 1, 2 }, { 2, 1 } };
+  public void shouldReturnTheDeterminantOf4By4Matrix() {
+    int[][] values = {
+      { 1, 5, 2, -2 },
+      { 4, 6, 0, -2 },
+      { 0, 5, 1, 0 },
+      { 2, 3, 5, -1 },
+    };
     Matrix matrix = Matrix.create(values);
-    assertEquals(-3, matrix.getDeterminant());
+    assertEquals(150, matrix.getDeterminant());
   }
 }
