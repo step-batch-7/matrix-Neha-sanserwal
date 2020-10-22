@@ -119,4 +119,10 @@ public class MatrixTest {
 
     assertEquals(expectedMatrix, matrixB.subtract(matrixA));
   }
+
+  public void shouldReturnTheDeterminantOf() {
+    int[][] values = { { 1 }, { 1 } };
+    Matrix matrix = Matrix.create(values);
+    assertEquals(1, matrix.getDeterminant());
+  }
 }
