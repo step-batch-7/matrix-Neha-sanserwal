@@ -173,9 +173,9 @@ public class MatrixTest {
 
   @Test
   public void shouldReturnTheDeterminantOf3By3Matrix() {
-    int[][] values = { { 5, 4, 2 }, { 4, -3, 22 }, { -1, -1, 1 } };
+    int[][] values = { { 5, 4, 2 }, { 4, -3, 2 }, { -1, -1, 1 } };
     Matrix matrix = Matrix.create(values);
-    assertEquals(-23, matrix.getDeterminant());
+    assertEquals(-43, matrix.getDeterminant());
   }
 
   @Test
