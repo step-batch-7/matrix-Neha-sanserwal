@@ -92,11 +92,10 @@ public class Matrix {
       return true;
     }
     Matrix otherMatrix = (Matrix) other;
-    if (!this.areDimensionsEqual(otherMatrix)) return false;
-    for (int row = 0; row < this.noOfRows; row++) {
-      if (!deepEqual(this.values[row], otherMatrix.values[row])) return false;
+    if (!this.areDimensionsEqual(otherMatrix)) {
+      return false;
     }
-    return true;
+    return this.isDeepEqual(otherMatrix);
   }
 
   @Override
@@ -126,12 +125,13 @@ public class Matrix {
     return temp;
   }
 
-  private boolean deepEqual(int[] numbers1, int[] numbers2) {
-    if (numbers1 == numbers2) return true;
-    if (numbers1 == null || numbers2 == null) return false;
-    if (numbers1.length != numbers2.length) return false;
-    for (int i = 0; i < numbers2.length; i++) {
-      if (numbers1[i] != numbers2[i]) return false;
+  private boolean isDeepEqual(Matrix matrix) {
+    for (int rowId = 0; rowId < this.noOfRows; rowId++) {
+      for (int colId = 0; colId < this.noOfColumns; colId++) {
+        if (this.values[rowId][colId] != matrix.values[rowId][colId]) {
+          return false;
+        }
+      }
     }
     return true;
   }
