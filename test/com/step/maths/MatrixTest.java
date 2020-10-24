@@ -30,26 +30,6 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldValidateIfDimensionsOfMatrixAreEqual() {
-    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
-    int[][] valuesB = { { 2, 3 }, { 4, 5 } };
-
-    Matrix matrixA = Matrix.create(valuesA);
-    Matrix matrixB = Matrix.create(valuesB);
-    assertTrue(matrixA.areDimensionsEqual(matrixB));
-  }
-
-  @Test
-  public void shouldValidateIfDimensionsOfMatrixAreNotEqual() {
-    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
-    int[][] valuesB = { { 2 }, { 4 } };
-
-    Matrix matrixA = Matrix.create(valuesA);
-    Matrix matrixB = Matrix.create(valuesB);
-    assertFalse(matrixA.areDimensionsEqual(matrixB));
-  }
-
-  @Test
   public void shouldValidateIfMatrixAreEqual() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 1, 2 }, { 3, 4 } };
@@ -91,6 +71,7 @@ public class MatrixTest {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 4 }, { 6, 8 } };
     int[][] expectedValues = { { 3, 6 }, { 9, 12 } };
+
     Matrix matrixA = Matrix.create(valuesA);
     Matrix matrixB = Matrix.create(valuesB);
     Matrix expectedMatrix = Matrix.create(expectedValues);
@@ -102,8 +83,10 @@ public class MatrixTest {
   public void addShouldReturnNullIfMatricesAreOfDifferentDimensions() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 4, 5 }, { 6, 8, 8 } };
+
     Matrix matrixA = Matrix.create(valuesA);
     Matrix matrixB = Matrix.create(valuesB);
+
     assertNull(matrixA.add(matrixB));
   }
 
@@ -160,21 +143,27 @@ public class MatrixTest {
   @Test
   public void shouldReturnTheDeterminantofOneByOneMatrix() {
     int[][] values = { { 1 } };
+
     Matrix matrix = Matrix.create(values);
+
     assertEquals(1, matrix.getDeterminant());
   }
 
   @Test
   public void shouldReturnTheDeterminantOfTwoByTwoMatrix() {
     int[][] values = { { 1, 2 }, { 2, 1 } };
+
     Matrix matrix = Matrix.create(values);
+
     assertEquals(-3, matrix.getDeterminant());
   }
 
   @Test
   public void shouldReturnTheDeterminantOf3By3Matrix() {
     int[][] values = { { 5, 4, 2 }, { 4, -3, 2 }, { -1, -1, 1 } };
+
     Matrix matrix = Matrix.create(values);
+
     assertEquals(-43, matrix.getDeterminant());
   }
 
@@ -186,7 +175,9 @@ public class MatrixTest {
       { 0, 5, 1, 0 },
       { 2, 3, 5, -1 },
     };
+
     Matrix matrix = Matrix.create(values);
+
     assertEquals(150, matrix.getDeterminant());
   }
 }

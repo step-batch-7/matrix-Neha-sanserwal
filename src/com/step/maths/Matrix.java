@@ -74,8 +74,16 @@ public class Matrix {
   }
 
   public int getDeterminant() {
+    if (this.noOfRows == 1 && this.noOfColumns == 1) {
+      return this.values[0][0];
+    }
     int determinant = 0;
-    determinant = this.calculateDeterminant(this);
+    for (int cell = 0; cell < this.noOfRows; cell++) {
+      double coefficient = Math.pow(-1, cell) * this.values[0][cell];
+      Matrix temp = this.getSubMatrix(cell);
+      int nextMatrixDeterminant = temp.getDeterminant();
+      determinant += coefficient * nextMatrixDeterminant;
+    }
     return determinant;
   }
 
@@ -108,32 +116,18 @@ public class Matrix {
     return stringBuilder.toString();
   }
 
-  private Matrix getSubMatrix(Matrix matrix, int excludedCol) {
-    Matrix temp = new Matrix(matrix.noOfRows - 1, matrix.noOfColumns - 1);
-    for (int row = 1; row < matrix.noOfRows; row++) {
+  private Matrix getSubMatrix(int excludedCol) {
+    Matrix temp = new Matrix(this.noOfRows - 1, this.noOfColumns - 1);
+    for (int row = 1; row < this.noOfRows; row++) {
       int tempCol = 0;
-      for (int col = 0; col < matrix.noOfColumns; col++) {
+      for (int col = 0; col < this.noOfColumns; col++) {
         if (col != excludedCol) {
-          temp.values[row - 1][tempCol] = matrix.values[row][col];
+          temp.values[row - 1][tempCol] = this.values[row][col];
           tempCol++;
         }
       }
     }
     return temp;
-  }
-
-  private int calculateDeterminant(Matrix matrix) {
-    if (matrix.noOfRows == 1 && matrix.noOfColumns == 1) {
-      return matrix.values[0][0];
-    }
-    int determinant = 0;
-    for (int cell = 0; cell < matrix.noOfRows; cell++) {
-      double suffix = Math.pow(-1, cell);
-      Matrix temp = this.getSubMatrix(matrix, cell);
-      int nextMatrixDeterminant = this.calculateDeterminant(temp);
-      determinant += suffix * matrix.values[0][cell] * nextMatrixDeterminant;
-    }
-    return determinant;
   }
 
   private boolean deepEqual(int[] numbers1, int[] numbers2) {
