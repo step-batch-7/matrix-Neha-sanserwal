@@ -39,9 +39,7 @@ public class Matrix {
   }
 
   public Matrix subtract(Matrix other) {
-    if (
-      this.noOfRows != other.noOfRows && this.noOfColumns != other.noOfColumns
-    ) {
+    if (!this.areDimensionsEqual(other)) {
       return null;
     }
     Matrix result = new Matrix(this.noOfRows, this.noOfColumns);

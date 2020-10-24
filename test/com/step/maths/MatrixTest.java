@@ -99,7 +99,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldSubtractTwoMatricesOfSameDimensions() {
+  public void subractShouldSubtractTwoMatricesOfSameDimensions() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 4 }, { 6, 8 } };
     int[][] expectedValues = { { 1, 2 }, { 3, 4 } };
@@ -125,7 +125,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldMultiplyTwoValidMatrices() {
+  public void multiplyShouldMultiplyTwoValidMatrices() {
     int[][] valuesA = { { 1, 2 } };
     int[][] valuesB = { { 2 }, { 4 } };
     int[][] expectedValues = { { 10 } };
@@ -138,7 +138,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldNotMultiplyTwoInvalidMatrices() {
+  public void multiplyShouldNotMultiplyTwoInvalidMatrices() {
     int[][] valuesA = { { 1, 2 } };
     int[][] valuesB = { { 2 } };
 
@@ -149,7 +149,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldReturnTheDeterminantofOneByOneMatrix() {
+  public void getDeterminantShouldReturnTheDeterminantofOneByOneMatrix() {
     int[][] values = { { 1 } };
 
     Matrix matrix = Matrix.create(values);
@@ -158,7 +158,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldReturnTheDeterminantOfTwoByTwoMatrix() {
+  public void getDeterminantShouldReturnTheDeterminantOfTwoByTwoMatrix() {
     int[][] values = { { 1, 2 }, { 2, 1 } };
 
     Matrix matrix = Matrix.create(values);
@@ -167,7 +167,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldReturnTheDeterminantOf3By3Matrix() {
+  public void getDeterminantShouldReturnTheDeterminantOf3By3Matrix() {
     int[][] values = { { 5, 4, 2 }, { 4, -3, 2 }, { -1, -1, 1 } };
 
     Matrix matrix = Matrix.create(values);
@@ -176,7 +176,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldReturnTheDeterminantOf4By4Matrix() {
+  public void getDeterminantShouldReturnTheDeterminantOf4By4Matrix() {
     int[][] values = {
       { 1, 5, 2, -2 },
       { 4, 6, 0, -2 },
