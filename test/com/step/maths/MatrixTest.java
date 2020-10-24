@@ -64,7 +64,7 @@ public class MatrixTest {
   }
 
   @Test
-  public void shouldAddTwoMatricesOfSameDimensions() {
+  public void addShouldAddTwoMatricesOfSameDimensions() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 4 }, { 6, 8 } };
     int[][] expectedValues = { { 3, 6 }, { 9, 12 } };
@@ -77,7 +77,18 @@ public class MatrixTest {
   }
 
   @Test
-  public void addShouldReturnNullIfMatricesAreOfDifferentDimensions() {
+  public void addShouldReturnNullIfMatricesAreOfDifferentRowLength() {
+    int[][] valuesA = { { 1, 2 }, { 3, 4 } };
+    int[][] valuesB = { { 2, 4 }, { 6, 8 }, { 10, 12 } };
+
+    Matrix matrixA = Matrix.create(valuesA);
+    Matrix matrixB = Matrix.create(valuesB);
+
+    assertNull(matrixA.add(matrixB));
+  }
+
+  @Test
+  public void addShouldReturnNullIfMatricesAreOfDifferentColumnLength() {
     int[][] valuesA = { { 1, 2 }, { 3, 4 } };
     int[][] valuesB = { { 2, 4, 5 }, { 6, 8, 8 } };
 
